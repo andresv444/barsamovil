@@ -1,0 +1,104 @@
+
+
+entity Customer {
+    typeDoc          TypeDoc, //Identity document
+    noIdentification Integer,
+    companyName      String,
+    firstName        String,
+    lastName         String,
+    address          String,
+    city             String,
+    phone            String,
+    cellPhone        String,
+    email            String,
+    userid           Long
+}
+enum TypeDoc {
+     DocIdentidad,
+     Cedula,
+     Nit,
+     Pasaporte
+}
+entity TypeOfBusiness {
+	name String
+}
+entity Product {
+    code            String,
+    dateCreation    Instant,
+    dateLastChange  Instant,
+    description     String,
+    //category        Category,
+    smallImage      ImageBlob,
+    mediumImage     ImageBlob,
+    measureType     MeasureType, //way of packing
+    quantity        Integer,   
+    price           BigDecimal,
+    lastPrice       BigDecimal,
+    tax1            BigDecimal,
+    tax2            BigDecimal
+}
+
+enum MeasureType {
+	Unidad,
+    Caja  
+}
+entity Category {
+	code        String,
+    description String,
+    image       ImageBlob
+}
+entity ListOfPrices {
+    description String,
+    percent  BigDecimal,
+    price    BigDecimal   
+}
+entity OrderHeader {
+    dateCreation    Instant,
+    dateLastChange  Instant,
+	dateDelivery    Instant,
+    orderNumber     Integer,
+    description     String,
+    Status          StatusOrder,
+    grossTotal      BigDecimal,
+    tax1Total       BigDecimal,
+    tax2Total       BigDecimal,
+    total           BigDecimal 
+}
+enum StatusOrder {
+	Completed,
+    Pending,
+    Cancelled,
+    OnHold
+}
+entity OrderDetailPos {
+    position       Integer,
+	quantity       Integer,
+    total          BigDecimal
+}
+
+entity Notification {
+        date    Instant,
+        message String
+}
+entity CheckNotification {
+        date       Instant,
+        mailCustomer String
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+
+    Customer        to OrderHeader{customer},
+    TypeOfBusiness  to Customer{typeOfBusiness}
+    OrderHeader     to OrderDetailPos{orderHeader(orderNumber) required},
+    Product         to OrderDetailPos{product} // Producto is not having field articuloCodigo!
+    Category        to Product{category}
+    Notification    to CheckNotification {notificacion}
+    ListOfPrices    to Customer{listOfPrices}
+}
+// defining multiple oneToOne relationships
+// Set pagination options
+paginate Customer, Product with infinite-scroll
+filter Product, Customer
+service all with serviceImpl
+
