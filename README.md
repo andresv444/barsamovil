@@ -1,6 +1,6 @@
 # barsa_movil
 
-- React Native app generated with [Ignite JHipster](https://github.com/ruddell/ignite-jhipster). See the Ignite JHipster docs for more details regarding this boilerplate.
+- This app handle sales orders
 
 ## :arrow_up: How to Setup
 
