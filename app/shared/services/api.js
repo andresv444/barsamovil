@@ -59,6 +59,60 @@ const create = (baseURL = AppConfig.apiUrl) => {
   const createUser = (user) => api.post('api/users', user)
   const updateUser = (user) => api.put('api/users', user)
   const deleteUser = (userId) => api.delete('api/users/' + userId)
+
+  const getCustomer = (customerId) => api.get('api/customers/' + customerId)
+  const getCustomers = (options) => api.get('api/customers', options)
+  const createCustomer = (customer) => api.post('api/customers', customer)
+  const updateCustomer = (customer) => api.put('api/customers', customer)
+  const deleteCustomer = (customerId) => api.delete('api/customers/' + customerId)
+
+  const getTypeOfBusiness = (typeOfBusinessId) => api.get('api/type-of-businesses/' + typeOfBusinessId)
+  const getTypeOfBusinesses = (options) => api.get('api/type-of-businesses', options)
+  const createTypeOfBusiness = (typeOfBusiness) => api.post('api/type-of-businesses', typeOfBusiness)
+  const updateTypeOfBusiness = (typeOfBusiness) => api.put('api/type-of-businesses', typeOfBusiness)
+  const deleteTypeOfBusiness = (typeOfBusinessId) => api.delete('api/type-of-businesses/' + typeOfBusinessId)
+
+  const getProduct = (productId) => api.get('api/products/' + productId)
+  const getProducts = (options) => api.get('api/products', options)
+  const createProduct = (product) => api.post('api/products', product)
+  const updateProduct = (product) => api.put('api/products', product)
+  const deleteProduct = (productId) => api.delete('api/products/' + productId)
+
+  const getCategory = (categoryId) => api.get('api/categories/' + categoryId)
+  const getCategories = (options) => api.get('api/categories', options)
+  const createCategory = (category) => api.post('api/categories', category)
+  const updateCategory = (category) => api.put('api/categories', category)
+  const deleteCategory = (categoryId) => api.delete('api/categories/' + categoryId)
+
+  const getListOfPrice = (listOfPriceId) => api.get('api/list-of-prices/' + listOfPriceId)
+  const getListOfPrices = (options) => api.get('api/list-of-prices', options)
+  const createListOfPrice = (listOfPrice) => api.post('api/list-of-prices', listOfPrice)
+  const updateListOfPrice = (listOfPrice) => api.put('api/list-of-prices', listOfPrice)
+  const deleteListOfPrice = (listOfPriceId) => api.delete('api/list-of-prices/' + listOfPriceId)
+
+  const getOrderHeader = (orderHeaderId) => api.get('api/order-headers/' + orderHeaderId)
+  const getOrderHeaders = (options) => api.get('api/order-headers', options)
+  const createOrderHeader = (orderHeader) => api.post('api/order-headers', orderHeader)
+  const updateOrderHeader = (orderHeader) => api.put('api/order-headers', orderHeader)
+  const deleteOrderHeader = (orderHeaderId) => api.delete('api/order-headers/' + orderHeaderId)
+
+  const getOrderDetailPo = (orderDetailPoId) => api.get('api/order-detail-pos/' + orderDetailPoId)
+  const getOrderDetailPos = (options) => api.get('api/order-detail-pos', options)
+  const createOrderDetailPo = (orderDetailPo) => api.post('api/order-detail-pos', orderDetailPo)
+  const updateOrderDetailPo = (orderDetailPo) => api.put('api/order-detail-pos', orderDetailPo)
+  const deleteOrderDetailPo = (orderDetailPoId) => api.delete('api/order-detail-pos/' + orderDetailPoId)
+
+  const getNotification = (notificationId) => api.get('api/notifications/' + notificationId)
+  const getNotifications = (options) => api.get('api/notifications', options)
+  const createNotification = (notification) => api.post('api/notifications', notification)
+  const updateNotification = (notification) => api.put('api/notifications', notification)
+  const deleteNotification = (notificationId) => api.delete('api/notifications/' + notificationId)
+
+  const getCheckNotification = (checkNotificationId) => api.get('api/check-notifications/' + checkNotificationId)
+  const getCheckNotifications = (options) => api.get('api/check-notifications', options)
+  const createCheckNotification = (checkNotification) => api.post('api/check-notifications', checkNotification)
+  const updateCheckNotification = (checkNotification) => api.put('api/check-notifications', checkNotification)
+  const deleteCheckNotification = (checkNotificationId) => api.delete('api/check-notifications/' + checkNotificationId)
   // ignite-jhipster-api-method-needle
 
   // ------
@@ -80,6 +134,60 @@ const create = (baseURL = AppConfig.apiUrl) => {
     getUsers,
     getUser,
     deleteUser,
+
+    createCustomer,
+    updateCustomer,
+    getCustomers,
+    getCustomer,
+    deleteCustomer,
+
+    createTypeOfBusiness,
+    updateTypeOfBusiness,
+    getTypeOfBusinesses,
+    getTypeOfBusiness,
+    deleteTypeOfBusiness,
+
+    createProduct,
+    updateProduct,
+    getProducts,
+    getProduct,
+    deleteProduct,
+
+    createCategory,
+    updateCategory,
+    getCategories,
+    getCategory,
+    deleteCategory,
+
+    createListOfPrice,
+    updateListOfPrice,
+    getListOfPrices,
+    getListOfPrice,
+    deleteListOfPrice,
+
+    createOrderHeader,
+    updateOrderHeader,
+    getOrderHeaders,
+    getOrderHeader,
+    deleteOrderHeader,
+
+    createOrderDetailPo,
+    updateOrderDetailPo,
+    getOrderDetailPos,
+    getOrderDetailPo,
+    deleteOrderDetailPo,
+
+    createNotification,
+    updateNotification,
+    getNotifications,
+    getNotification,
+    deleteNotification,
+
+    createCheckNotification,
+    updateCheckNotification,
+    getCheckNotifications,
+    getCheckNotification,
+    deleteCheckNotification,
     // ignite-jhipster-api-export-needle
     setAuthToken,
     removeAuthToken,

@@ -1,0 +1,33 @@
+{
+  "name": "CheckNotification",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "mailCustomer",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "checkNotification",
+      "relationshipName": "notificacion",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200622010314",
+  "entityTableName": "check_notification",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,83 @@
+{
+  "name": "Customer",
+  "fields": [
+    {
+      "fieldName": "typeDoc",
+      "fieldType": "TypeDoc",
+      "fieldValues": "DocIdentidad,Cedula,Nit,Pasaporte"
+    },
+    {
+      "fieldName": "noIdentification",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "companyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cellPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userid",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "orderHeader",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "orderHeader"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeOfBusiness",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "typeOfBusiness",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "listOfPrices",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "listOfPrices",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200622005514",
+  "entityTableName": "customer",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

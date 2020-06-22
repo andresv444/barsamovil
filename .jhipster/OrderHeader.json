@@ -1,0 +1,72 @@
+{
+  "name": "OrderHeader",
+  "fields": [
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateLastChange",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateDelivery",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "orderNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusOrder",
+      "fieldValues": "Completed,Pending,Cancelled,OnHold"
+    },
+    {
+      "fieldName": "grossTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "tax1Total",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "tax2Total",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "orderDetailPos",
+      "otherEntityRelationshipName": "orderHeader",
+      "relationshipName": "orderDetailPos"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "orderHeader",
+      "relationshipName": "customer",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200622010014",
+  "entityTableName": "order_header",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

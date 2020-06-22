@@ -1,0 +1,28 @@
+{
+  "name": "TypeOfBusiness",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "typeOfBusiness",
+      "relationshipName": "customer"
+    }
+  ],
+  "changelogDate": "20200622005614",
+  "entityTableName": "type_of_business",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

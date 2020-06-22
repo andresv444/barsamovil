@@ -1,0 +1,36 @@
+{
+  "name": "ListOfPrices",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "percent",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "listOfPrices",
+      "relationshipName": "customer"
+    }
+  ],
+  "changelogDate": "20200622005914",
+  "entityTableName": "list_of_prices",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
