@@ -25,6 +25,7 @@ export function* getProducts(api, action) {
 
   // success?
   if (response.ok) {
+    console.log('trama resultado consulta products=' +response.data)
     yield put(ProductActions.productAllSuccess(response.data, response.headers))
   } else {
     yield put(ProductActions.productAllFailure(response.data))

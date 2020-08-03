@@ -45,7 +45,7 @@ import CheckNotificationEntityScreen from '../modules/entities/check-notificatio
 import CheckNotificationEntityDetailScreen from '../modules/entities/check-notification/check-notification-entity-detail-screen'
 import CheckNotificationEntityEditScreen from '../modules/entities/check-notification/check-notification-entity-edit-screen'
 // ignite-jhipster-navigation-import-needle
-
+const store = createStore()
 export const LOGIN_SCREEN = 'nav.LoginScreen'
 export const REGISTER_SCREEN = 'nav.RegisterScreen'
 export const FORGOT_PASSWORD_SCREEN = 'nav.ForgotPasswordScreen'
@@ -84,8 +84,6 @@ export const CHECK_NOTIFICATION_ENTITY_DETAIL_SCREEN = 'nav.CheckNotificationEnt
 export const CHECK_NOTIFICATION_ENTITY_EDIT_SCREEN = 'nav.CheckNotificationEntityEditScreen'
 // ignite-jhipster-navigation-declaration-needle
 
-const store = createStore()
-
 export const appStack = {
   root: {
     sideMenu: {
@@ -100,11 +98,12 @@ export const appStack = {
           children: [
             {
               component: {
-                name: LAUNCH_SCREEN,
+                 name: LAUNCH_SCREEN,
+                // name: PRODUCT_ENTITY_SCREEN,
                 options: {
                   topBar: {
                     title: {
-                      text: 'Welcome!',
+                      text: 'Bienvenido!',
                       color: Colors.snow,
                     },
                     leftButtons: [
@@ -114,6 +113,15 @@ export const appStack = {
                         testID: 'menuButton',
                         color: Colors.snow,
                       },
+                    ],
+                    rightButtons: [
+                      {
+                        id: 'createButton',
+                        text: false,
+                        color: Colors.snow,
+                        testID: 'categoryCreateButton',
+                        icon: Images.shoping,
+                      }
                     ],
                   },
                 },
@@ -470,10 +478,11 @@ export const productEntityScreen = () =>
           rightButtons: [
             {
               id: 'createButton',
-              text: 'Create',
+              text: false,
               color: Colors.snow,
-              testID: 'productCreateButton',
-            },
+              testID: 'categoryCreateButton',
+              icon: Images.shoping,
+            }
           ],
         },
       },

@@ -6,8 +6,10 @@ export default {
     backgroundColor: Colors.background,
   },
   logo: {
+    // alignSelf: 'center',
+    // height: 100,
+    // width: 100,
     alignSelf: 'center',
-    height: 80,
-    width: 80,
+    resizeMode: 'contain',
   },
 }

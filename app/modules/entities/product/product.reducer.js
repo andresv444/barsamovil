@@ -20,8 +20,9 @@ const { Types, Creators } = createActions({
   productAllFailure: ['error'],
   productUpdateFailure: ['error'],
   productDeleteFailure: ['error'],
-
   productReset: [],
+  //filtra los productos
+  productFilter: ['searchTxt'],
 })
 
 export const ProductTypes = Types
@@ -42,6 +43,8 @@ export const INITIAL_STATE = Immutable({
   errorDeleting: null,
   links: { next: 0 },
   totalItems: 0,
+  searchTxt: '',
+  productsFilter: [],
 })
 
 /* ------------- Reducers ------------- */
@@ -60,6 +63,29 @@ export const allRequest = (state) =>
     fetchingAll: true,
     errorAll: false,
   })
+
+export const filter = (state, action) => {
+  if (action.searchTxt === '') {
+     console.log('tamaño del texto=' + action.searchTxt.length )
+    return state.merge({
+      productsFilter: [...state.products]
+    })
+  }
+  const data = state.products.filter((item) => {
+    // console.log('variable datos filtrados='+item.description.toUpperCase())
+    const itemData = item.description.toUpperCase()
+    const textData = action.searchTxt.toUpperCase()
+    return itemData.indexOf(textData) > -1
+  })
+
+  // console.log('variable datos filtrados='+data.length)
+  // console.log('datos no filtrados='+state.categories.length)
+  return state.merge({
+    filter: true,
+    searchTxt: action.searchTxt,
+    productsFilter: data
+  })
+}
 
 // request to update from an api
 export const updateRequest = (state) =>
@@ -168,4 +194,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.PRODUCT_UPDATE_FAILURE]: updateFailure,
   [Types.PRODUCT_DELETE_FAILURE]: deleteFailure,
   [Types.PRODUCT_RESET]: reset,
+  [Types.PRODUCT_FILTER]: filter,
 })

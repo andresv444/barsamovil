@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, Alert, ScrollView, Text, View } from 'react-native'
+import {ActivityIndicator, Alert, Image, ScrollView, Text, View} from 'react-native'
 import { connect } from 'react-redux'
 import { Navigation } from 'react-native-navigation'
 import { categoryEntityEditScreen } from '../../../navigation/layouts'
@@ -57,6 +57,8 @@ class CategoryEntityDetailScreen extends React.Component {
         <Text testID="code">Code: {this.props.category.code}</Text>
         <Text testID="description">Description: {this.props.category.description}</Text>
         <Text testID="image">Image: {this.props.category.image}</Text>
+        <Image source={{uri: `data:image/png;base64,${this.props.category.image}`}}
+               style={{width : "100%" , height:"95%" , resizeMode:"contain" , borderRadius:5}}/>
         <RoundedButton text="Edit" onPress={categoryEntityEditScreen.bind(this, { entityId: this.props.category.id })} />
         <RoundedButton text="Delete" onPress={this.confirmDelete} />
       </ScrollView>
